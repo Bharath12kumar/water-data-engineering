@@ -25,12 +25,12 @@ try:
     cursor.execute(order_query,order_values)
     
     connection.commit()
-    print("Transaction successful")
+    print("Transaction  successful")
 
 except mysql.connector.Error as err:
     connection.rollback()
     print("Error:",err)
-    print("Transaction rolled back")
+    print("Transaction was rolled back")
 
 
 finally:
