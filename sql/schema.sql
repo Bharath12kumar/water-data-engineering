@@ -31,3 +31,12 @@ CREATE TABLE deliveries (
     delivery_date DATE,
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
+
+create TABLE Daily_summary(
+summary_date date primary key,
+total_orders int,
+total_quantity int,
+total_Revenue decimal(10,2),
+total_customers int
+)
+
