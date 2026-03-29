@@ -38,5 +38,16 @@ total_orders int,
 total_quantity int,
 total_Revenue decimal(10,2),
 total_customers int
+);
+
+create TABLE monthly_summary(
+year int,
+month int,
+total_orders int,
+total_quantity int,
+total_Revenue decimal(10,2),
+total_customers int,
+PRIMARY KEY(year,month)
 )
+
 

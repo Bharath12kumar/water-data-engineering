@@ -1,41 +1,40 @@
 import mysql.connector 
 from datetime import date
-date.today()
-try:
-    connection=mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='Bk$aug2025',
-        database='water_business'
-    )
 
-    cursor=connection.cursor()
 
-    connection.start_transaction()
+def insert_order(customer_id, quantity, order_date, status):
+    try:
+        connection=mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='Bk$aug2025',
+            database='water_business'
+        )
 
-    query = "INSERT INTO customers (name, phone, address) VALUES (%s, %s, %s)"
-    values = ("tirumla", "9122305645", "Kancharam")
 
-    cursor.execute(query,values)
-    customer_id = cursor.lastrowid
+        cursor=connection.cursor()
 
-    order_query="insert into orders (customer_id,quantity,order_date,status) values(%s, %s, %s,%s)"
-    order_values=(customer_id,4,date.today(),"placed")
-
-    cursor.execute(order_query,order_values)
+        order_query="insert into orders (customer_id,quantity,order_date,status) values(%s, %s, %s,%s)"
+        order_values=(customer_id,quantity,order_date,status)
     
-    connection.commit()
-    print("Transaction  successful")
+        cursor.execute(order_query,order_values)
+        connection.commit()
 
-except mysql.connector.Error as err:
-    connection.rollback()
-    print("Error:",err)
-    print("Transaction was rolled back")
+        order_id=cursor.lastrowid
+        print ("order placed sucessfully")
+        return order_id
+
+    except mysql.connector.Error as err:
+        connection.rollback()
+        print("Error:",err)
+        print("Transaction was rolled back")
 
 
-finally:
-    if 'cursor' in locals():
-        cursor.close()
-    if 'connection' in locals() and connection.is_connected():
-        connection.close()
-        print("Connection closed.")
+    finally:
+        if 'cursor' in locals():
+            cursor.close()
+        if 'connection' in locals() and connection.is_connected():
+            connection.close()
+            print("Connection closed.")
+
+insert_order(1,4, date.today(),"placed")
