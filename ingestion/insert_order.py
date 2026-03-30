@@ -37,4 +37,6 @@ def insert_order(customer_id, quantity, order_date, status):
             connection.close()
             print("Connection closed.")
 
-insert_order(1,4, date.today(),"placed")
+
+if __name__=="__main__":
+    insert_order(1,4, date.today(),"placed")

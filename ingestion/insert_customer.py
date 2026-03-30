@@ -32,4 +32,5 @@ def insert_customer(name,phone,address):
             connection.close()
         print("Connection closed.")
 
-insert_customer("Ravi", "9876543210", "Hyderabad")
+if __name__== "__main__":
+    insert_customer("Ravi", "9876543210", "Hyderabad")

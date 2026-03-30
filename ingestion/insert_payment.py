@@ -1,7 +1,7 @@
 import mysql.connector
 from datetime import date 
 
-def customer_payment(order_id,amount,paid,payment_date):
+def insert_payment(order_id,amount,paid,payment_date):
     try:
         connection=mysql.connector.connect(
             host='localhost',
@@ -15,6 +15,7 @@ def customer_payment(order_id,amount,paid,payment_date):
 
         query="insert into payments(order_id,amount,paid,payment_date) values(%s,%s,%s,%s)"
         values=(order_id,amount,paid,payment_date)
+
 
         cursor.execute(query,values)
         connection.commit()
@@ -37,7 +38,7 @@ def customer_payment(order_id,amount,paid,payment_date):
 
 
  
-
-customer_payment(1,200,200,date.today())
+if __name__=="__main__":
+    insert_payment(2,200,'NO',date.today())
 
 
