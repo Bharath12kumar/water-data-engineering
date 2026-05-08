@@ -22,7 +22,7 @@ try:
 except mysql.connector.Error as Err:
     connection.rollback()
     print("Error:",Err)
-    print("Transaction was rolled back")
+    print("Transaction was rolled back")  
 
 finally:
     if 'cursor' in locals():
