@@ -1,9 +1,5 @@
 # Water Distribution Data Engineering Project
-<<<<<<< HEAD
-=======
 
-
->>>>>>> dae7a6c80b0aa939fa6dc4f19e46c4d7589806ae
 ## Project Overview
 This project simulates a real-world water distribution business pipeline.
 It focuses on end-to-end data flow — from customer registration and order
@@ -99,14 +95,3 @@ README.md
 - How to build a REST API using FastAPI and expose pipeline data
   through clean endpoints
 - How real data flows through a business system — from insertion
-<<<<<<< HEAD
-=======
-  to storage to reporting
-
-This project is a water distribution business pipeline which analyses 
-data and mainly focuses on data insertion, retrieval, and storage. 
-The pipeline ingests raw business data, processes it through ETL scripts 
-that generate daily and monthly summaries, and exposes the data 
-through a REST API built with FastAPI.
-
->>>>>>> dae7a6c80b0aa939fa6dc4f19e46c4d7589806ae
